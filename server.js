@@ -11,21 +11,7 @@ var io = require('socket.io')(http, {
     }
 });
 
-app.use('/api', (req, res, next) => {
-    // //console.log(req.headers.origin);
-    // var allowedOrigins = ['http://127.0.0.1:4200', 'http://localhost:4200', 'http://127.0.0.1:3000', 'http://localhost:3000'];
-    // var origin = req.headers.origin;
-    // //console.log(req.headers.origin);
-    // if (allowedOrigins.indexOf(origin) > -1) {
-    //     res.header('Access-Control-Allow-Origin', origin);
-    // }
-    //res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
 
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, OPTIONS,PATCH,POST,PUT,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
 app.get('/', (req, res) => res.send('hello!'));
 
 io.on('connection', (socket) => {
